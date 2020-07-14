@@ -9,11 +9,19 @@ const genList = (size, min, max) => {
 };
 
 const Canvas = () => {
-  const { algs, currentAlg } = useContext(AlgContext);
+  const BARWIDTH = 2;
+  const { currentAlg } = useContext(AlgContext);
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    setList(genList(60, 5, 500));
+    console.log(window.innerWidth);
+    setList(
+      genList(
+        Math.floor((window.innerWidth * 0.6) / (2 * BARWIDTH)),
+        5,
+        window.innerHeight * 0.7
+      )
+    );
   }, [currentAlg]);
 
   return (
@@ -29,7 +37,7 @@ const Canvas = () => {
           <div
             key={i}
             style={{
-              width: 2,
+              width: BARWIDTH,
               height: el,
               background: "#121212",
               margin: 2,

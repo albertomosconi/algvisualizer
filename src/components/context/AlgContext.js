@@ -17,9 +17,12 @@ export const AlgProvider = ({ children }) => {
     { name: "Radix Sort", complexity: "O(wn)" },
   ]);
   const [currentAlg, setCurrentAlg] = useState(0);
+  const [reset, setReset] = useState(0);
 
   return (
-    <AlgContext.Provider value={{ algs, setAlgs, currentAlg, setCurrentAlg }}>
+    <AlgContext.Provider
+      value={{ algs, setAlgs, currentAlg, setCurrentAlg, reset, setReset }}
+    >
       {children}
     </AlgContext.Provider>
   );

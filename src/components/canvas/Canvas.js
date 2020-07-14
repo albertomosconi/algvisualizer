@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
 
@@ -10,19 +10,20 @@ const genList = (size, min, max) => {
 
 const Canvas = () => {
   const BARWIDTH = 2;
-  const { currentAlg } = useContext(AlgContext);
+  const { reset, setReset } = useContext(AlgContext);
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    console.log(window.innerWidth);
-    setList(
-      genList(
-        Math.floor((window.innerWidth * 0.6) / (2 * BARWIDTH)),
-        5,
-        window.innerHeight * 0.7
-      )
-    );
-  }, [currentAlg]);
+    if (reset === 0)
+      setList(
+        genList(
+          Math.floor((window.innerWidth * 0.6) / (2 * BARWIDTH)),
+          5,
+          window.innerHeight * 0.7
+        )
+      );
+    setReset(0);
+  }, [reset, setReset]);
 
   return (
     <Container fluid>
@@ -40,7 +41,7 @@ const Canvas = () => {
               width: BARWIDTH,
               height: el,
               background: "#121212",
-              margin: 2,
+              margin: Math.min(BARWIDTH, 10),
               display: "inline-block",
             }}
           ></div>

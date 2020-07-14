@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
+import { AlgProvider } from "./components/context/AlgContext";
+import Header from "./components/header/Header";
+import Controls from "./components/controls/Controls";
 
 function App() {
   return (
-    <div className="App">
-      <h1>AlgVisualizer</h1>
-    </div>
+    <AlgProvider>
+      <Header />
+      <Controls />
+    </AlgProvider>
   );
 }
 

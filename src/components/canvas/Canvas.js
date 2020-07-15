@@ -8,9 +8,13 @@ const genList = (size, min, max) => {
   );
 };
 
+const sortList = (list) => {
+  return list.sort((a, b) => a - b);
+};
+
 const Canvas = () => {
   const BARWIDTH = 2;
-  const { reset, setReset } = useContext(AlgContext);
+  const { reset, setReset, sorting, setSorting } = useContext(AlgContext);
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -24,6 +28,13 @@ const Canvas = () => {
       );
     setReset(0);
   }, [reset, setReset]);
+
+  useEffect(() => {
+    if (sorting == 1) {
+      setList(sortList(list));
+      setSorting(0);
+    }
+  }, [sorting, setSorting]);
 
   return (
     <Container fluid>

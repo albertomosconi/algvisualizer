@@ -18,10 +18,20 @@ export const AlgProvider = ({ children }) => {
   ]);
   const [currentAlg, setCurrentAlg] = useState(0);
   const [reset, setReset] = useState(0);
+  const [sorting, setSorting] = useState(0);
 
   return (
     <AlgContext.Provider
-      value={{ algs, setAlgs, currentAlg, setCurrentAlg, reset, setReset }}
+      value={{
+        algs,
+        setAlgs,
+        currentAlg,
+        setCurrentAlg,
+        reset,
+        setReset,
+        sorting,
+        setSorting,
+      }}
     >
       {children}
     </AlgContext.Provider>

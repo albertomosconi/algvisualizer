@@ -11,7 +11,7 @@ import {
 } from "react-bootstrap";
 
 const Controls = () => {
-  const { algs, setCurrentAlg, setReset } = useContext(AlgContext);
+  const { algs, setCurrentAlg, setReset, setSorting } = useContext(AlgContext);
   return (
     <div
       style={{
@@ -44,7 +44,14 @@ const Controls = () => {
         ))}
       </DropdownButton>
       <span style={{ width: 10 }} />
-      <Button variant="primary">Sort</Button>
+      <Button
+        variant="primary"
+        onClick={() => {
+          setSorting(1);
+        }}
+      >
+        Sort
+      </Button>
       <span style={{ width: 10 }} />
       <Button
         variant="danger"

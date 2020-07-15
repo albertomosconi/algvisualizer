@@ -68,8 +68,9 @@ export const AlgProvider = ({ children }) => {
     },
   ]);
   const [currentAlg, setCurrentAlg] = useState(0);
-  const [reset, setReset] = useState(0);
+  const [reset, setReset] = useState(1);
   const [sorting, setSorting] = useState(0);
+  const [sorted, setSorted] = useState(0);
 
   return (
     <AlgContext.Provider
@@ -82,6 +83,8 @@ export const AlgProvider = ({ children }) => {
         setReset,
         sorting,
         setSorting,
+        sorted,
+        setSorted,
       }}
     >
       {children}

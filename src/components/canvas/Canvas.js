@@ -11,13 +11,19 @@ const genList = (size, min, max) => {
 
 const Canvas = () => {
   const BARWIDTH = 2;
-  const { algs, currentAlg, reset, setReset, sorting, setSorting } = useContext(
-    AlgContext
-  );
+  const {
+    algs,
+    currentAlg,
+    reset,
+    setReset,
+    sorting,
+    setSorting,
+    setSorted,
+  } = useContext(AlgContext);
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    if (reset === 0) {
+    if (reset === 1) {
       setSorting(0);
       setList(
         genList(
@@ -26,16 +32,18 @@ const Canvas = () => {
           window.innerHeight * 0.7
         )
       );
+      setReset(0);
+      setSorted(0);
     }
-    setReset(0);
-  }, [reset, setReset, setSorting]);
+  }, [reset, setSorting, setReset, setSorted]);
 
   useEffect(() => {
     if (sorting === 1) {
       setList((list) => algs[currentAlg].sort(list));
       setSorting(0);
+      setSorted(1);
     }
-  }, [sorting, setSorting]);
+  }, [sorting, algs, currentAlg, setSorted, setSorting]);
 
   return (
     <Container fluid>

@@ -4,7 +4,9 @@ import { AlgContext } from "../context/AlgContext";
 import "./style.css";
 
 const Controls = () => {
-  const { algs, setCurrentAlg, setReset, setSorting } = useContext(AlgContext);
+  const { algs, setCurrentAlg, setReset, setSorting, sorted } = useContext(
+    AlgContext
+  );
   return (
     <div
       style={{
@@ -27,10 +29,13 @@ const Controls = () => {
           <Dropdown.Item
             onClick={(e) => {
               setCurrentAlg(i);
+              if (sorted) setReset(1);
             }}
             key={i}
           >
-            {alg.name}
+            <strong>{alg.name}</strong>
+            {" - "}
+            {alg.complexity}
           </Dropdown.Item>
         ))}
       </DropdownButton>

@@ -13,38 +13,48 @@ import {
 const Controls = () => {
   const { algs, setCurrentAlg, setReset } = useContext(AlgContext);
   return (
-    <Navbar fixed="bottom" bg="light">
-      <Container>
-        <DropdownButton
-          as={ButtonGroup}
-          id={"dropdown-button-drop-up"}
-          drop={"up"}
-          variant="secondary"
-          title={"Select Algorithm"}
-        >
-          {algs.map((alg, i) => (
-            <Dropdown.Item
-              onClick={(e) => {
-                setCurrentAlg(i);
-                setReset(1);
-              }}
-              key={i}
-            >
-              {alg.name}
-            </Dropdown.Item>
-          ))}
-        </DropdownButton>
-        <Button variant="primary">Sort</Button>
-        <Button
-          variant="danger"
-          onClick={() => {
-            setReset(1);
-          }}
-        >
-          Reset
-        </Button>
-      </Container>
-    </Navbar>
+    <div
+      style={{
+        position: "absolute",
+        bottom: 0,
+        minWidth: "100%",
+        display: "flex",
+        justifyContent: "center",
+        paddingBottom: 10,
+      }}
+    >
+      <DropdownButton
+        as={ButtonGroup}
+        id={"dropdown-button-drop-up"}
+        drop={"up"}
+        variant="secondary"
+        title={"Algorithm"}
+        className="pr-1"
+      >
+        {algs.map((alg, i) => (
+          <Dropdown.Item
+            onClick={(e) => {
+              setCurrentAlg(i);
+              setReset(1);
+            }}
+            key={i}
+          >
+            {alg.name}
+          </Dropdown.Item>
+        ))}
+      </DropdownButton>
+      <span style={{ width: 10 }} />
+      <Button variant="primary">Sort</Button>
+      <span style={{ width: 10 }} />
+      <Button
+        variant="danger"
+        onClick={() => {
+          setReset(1);
+        }}
+      >
+        Reset
+      </Button>
+    </div>
   );
 };
 

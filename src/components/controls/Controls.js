@@ -1,14 +1,7 @@
 import React, { useContext } from "react";
-import "./style.css";
+import { Button, ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
-import {
-  Container,
-  Navbar,
-  Dropdown,
-  DropdownButton,
-  ButtonGroup,
-  Button,
-} from "react-bootstrap";
+import "./style.css";
 
 const Controls = () => {
   const { algs, setCurrentAlg, setReset, setSorting } = useContext(AlgContext);
@@ -35,7 +28,6 @@ const Controls = () => {
           <Dropdown.Item
             onClick={(e) => {
               setCurrentAlg(i);
-              setReset(1);
             }}
             key={i}
           >

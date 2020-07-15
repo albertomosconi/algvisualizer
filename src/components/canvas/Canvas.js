@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
+// import countingSort from "../../algorithms/countingSort";
 
 const genList = (size, min, max) => {
   return [...Array(size)].map((_) =>
@@ -8,17 +9,16 @@ const genList = (size, min, max) => {
   );
 };
 
-const sortList = (list) => {
-  return list.sort((a, b) => a - b);
-};
-
 const Canvas = () => {
   const BARWIDTH = 2;
-  const { reset, setReset, sorting, setSorting } = useContext(AlgContext);
+  const { algs, currentAlg, reset, setReset, sorting, setSorting } = useContext(
+    AlgContext
+  );
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    if (reset === 0)
+    if (reset === 0) {
+      setSorting(0);
       setList(
         genList(
           Math.floor((window.innerWidth * 0.6) / (2 * BARWIDTH)),
@@ -26,12 +26,13 @@ const Canvas = () => {
           window.innerHeight * 0.7
         )
       );
+    }
     setReset(0);
-  }, [reset, setReset]);
+  }, [reset, setReset, setSorting]);
 
   useEffect(() => {
-    if (sorting == 1) {
-      setList(sortList(list));
+    if (sorting === 1) {
+      setList((list) => algs[currentAlg].sort(list));
       setSorting(0);
     }
   }, [sorting, setSorting]);

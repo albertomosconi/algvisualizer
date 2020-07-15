@@ -110,6 +110,26 @@ function max_heapify(a, i, length) {
   }
 }
 
+// QUICKSORT
+export const quickSort = (list) => {
+  return list;
+};
+
+// SHELLSORT
+export const shellSort = (list) => {
+  return list;
+};
+
+// BUBBLE SORT
+export const bubbleSort = (list) => {
+  return list;
+};
+
+// COMB SORT
+export const combSort = (list) => {
+  return list;
+};
+
 // COUNTING SORT
 export const countingSort = (list) => {
   // initialize useful values
@@ -135,4 +155,14 @@ export const countingSort = (list) => {
     }
   }
   return output;
+};
+
+// BUCKET SORT
+export const bucketSort = (list) => {
+  return list;
+};
+
+// RADIX SORT
+export const radixSort = (list) => {
+  return list;
 };

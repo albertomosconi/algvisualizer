@@ -1,10 +1,16 @@
 import React, { createContext, useState } from "react";
 import {
   insertionSort,
-  countingSort,
   selectionSort,
   mergeSort,
   heapSort,
+  quickSort,
+  shellSort,
+  bubbleSort,
+  combSort,
+  countingSort,
+  bucketSort,
+  radixSort,
 } from "../../algorithms/sorting";
 
 export const AlgContext = createContext();
@@ -31,17 +37,41 @@ export const AlgProvider = ({ children }) => {
       complexity: "O(nlogn)",
       sort: (list) => heapSort(list),
     },
-    // { name: "Quicksort", complexity: "O(n^2)" },
-    // { name: "Shellsort", complexity: "O(n^2)" },
-    // { name: "Bubble Sort", complexity: "O(n^2)" },
-    // { name: "Comb Sort", complexity: "O(n^2)" },
+    {
+      name: "Quicksort",
+      complexity: "O(n^2)",
+      sort: (list) => quickSort(list),
+    },
+    {
+      name: "Shellsort",
+      complexity: "O(n^2)",
+      sort: (list) => shellSort(list),
+    },
+    {
+      name: "Bubble Sort",
+      complexity: "O(n^2)",
+      sort: (list) => bubbleSort(list),
+    },
+    {
+      name: "Comb Sort",
+      complexity: "O(n^2)",
+      sort: (list) => combSort(list),
+    },
     {
       name: "Counting Sort",
       complexity: "O(n+k)",
       sort: (list) => countingSort(list),
     },
-    // { name: "Bucket Sort", complexity: "O(n^2)" },
-    // { name: "Radix Sort", complexity: "O(wn)" },
+    {
+      name: "Bucket Sort",
+      complexity: "O(n^2)",
+      sort: (list) => bucketSort(list),
+    },
+    {
+      name: "Radix Sort",
+      complexity: "O(wn)",
+      sort: (list) => radixSort(list),
+    },
   ]);
   const [currentAlg, setCurrentAlg] = useState(0);
   const [reset, setReset] = useState(0);

@@ -22,7 +22,6 @@ const Controls = () => {
         drop={"up"}
         variant="secondary"
         title={"Algorithm"}
-        className="pr-1"
       >
         {algs.map((alg, i) => (
           <Dropdown.Item

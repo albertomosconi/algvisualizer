@@ -112,21 +112,79 @@ function max_heapify(a, i, length) {
 
 // QUICKSORT
 export const quickSort = (list) => {
-  return list;
+  if (list.length <= 1) return list;
+  else {
+    let left = [];
+    let right = [];
+    let newList = [];
+    let pivot = list.pop();
+
+    for (let i = 0; i < list.length; i++) {
+      if (list[i] <= pivot) left.push(list[i]);
+      else right.push(list[i]);
+    }
+
+    return newList.concat(quickSort(left), pivot, quickSort(right));
+  }
 };
 
 // SHELLSORT
 export const shellSort = (list) => {
+  let gap = list.length / 2;
+  while (gap > 0) {
+    for (let i = gap; i < list.length; i++) {
+      let j = i;
+      let temp = list[i];
+
+      while (j >= gap && list[j - gap] > temp) {
+        list[j] = list[j - gap];
+        j = j - gap;
+      }
+      list[j] = temp;
+    }
+    if (gap === 2) {
+      gap = 1;
+    } else {
+      gap = parseInt((gap * 5) / 11);
+    }
+  }
   return list;
 };
 
 // BUBBLE SORT
 export const bubbleSort = (list) => {
+  let len = list.length;
+
+  for (let i = 0; i < len; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (list[j] > list[j + 1]) {
+        [list[j], list[j + 1]] = [list[j + 1], list[j]];
+      }
+    }
+  }
   return list;
 };
 
 // COMB SORT
 export const combSort = (list) => {
+  let gap = list.length;
+  let shrink = 1.3;
+  let sorted = false;
+
+  while (sorted === false) {
+    gap = Math.floor(gap / shrink);
+    if (gap <= 1) {
+      gap = 1;
+      sorted = true;
+    }
+
+    for (let i = 0; i + gap < list.length; i++) {
+      if (list[i] > list[i + gap]) {
+        [list[i], list[i + gap]] = [list[i + gap], list[i]];
+        sorted = false;
+      }
+    }
+  }
   return list;
 };
 
@@ -159,10 +217,23 @@ export const countingSort = (list) => {
 
 // BUCKET SORT
 export const bucketSort = (list) => {
-  return list;
-};
+  let k = 10; // number of buckets
+  let buckets = new Array(k);
+  for (let i = 0; i < k; i++) {
+    buckets[i] = [];
+  }
+  let max = Math.max(...list);
 
-// RADIX SORT
-export const radixSort = (list) => {
-  return list;
+  for (let i = 0; i < list.length; i++) {
+    if (list[i] === max) buckets[k - 1].push(max);
+    else buckets[Math.floor((k * list[i]) / max)].push(list[i]);
+  }
+
+  let output = [];
+  for (let i = 0; i < k; i++) {
+    insertionSort(buckets[i]);
+    output = [...output, ...buckets[i]];
+  }
+
+  return output;
 };

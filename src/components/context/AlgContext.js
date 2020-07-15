@@ -10,7 +10,6 @@ import {
   combSort,
   countingSort,
   bucketSort,
-  radixSort,
 } from "../../algorithms/sorting";
 
 export const AlgContext = createContext();
@@ -66,11 +65,6 @@ export const AlgProvider = ({ children }) => {
       name: "Bucket Sort",
       complexity: "O(n^2)",
       sort: (list) => bucketSort(list),
-    },
-    {
-      name: "Radix Sort",
-      complexity: "O(wn)",
-      sort: (list) => radixSort(list),
     },
   ]);
   const [currentAlg, setCurrentAlg] = useState(0);

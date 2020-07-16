@@ -40,20 +40,43 @@ export const insertionSort = (input) => {
 };
 
 // SELECTION SORT
-export const selectionSort = (list) => {
+export const selectionSort = (input) => {
+  let array = [...deepCopy(input)];
+  let animations = [];
   const left = 0;
-  const right = list.length;
+  const right = array.length;
 
   for (var i = left; i < right; ++i) {
     var min = i;
+    array[i].col = "green";
+    animations.push([...deepCopy(array)]);
+
     for (var j = i; j < right; ++j) {
-      if (list[min] > list[j]) {
+      if (j !== min) {
+        array[j].col = "red";
+        if (j !== min + 1) array[j - 1].col = "black";
+        animations.push([...deepCopy(array)]);
+      }
+
+      if (array[min].val > array[j].val) {
+        array[j].col = "green";
+        // animations.push([...deepCopy(array)]);
+        if (min !== i) array[min].col = "black";
+        animations.push([...deepCopy(array)]);
         min = j;
       }
     }
-    [list[min], list[i]] = [list[i], list[min]];
+
+    if (j === right && j - 1 !== min) array[j - 1].col = "black";
+
+    [array[min], array[i]] = [array[i], array[min]];
+    animations.push([...deepCopy(array)]);
+    animations.push([...deepCopy(array)]);
+    array[min].col = "black";
+    array[i].col = "black";
+    animations.push([...deepCopy(array)]);
   }
-  return list;
+  return animations;
 };
 
 // MERGE SORT

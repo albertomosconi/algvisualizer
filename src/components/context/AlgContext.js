@@ -21,11 +21,11 @@ export const AlgProvider = ({ children }) => {
       complexity: "O(n^2)",
       sortAlg: (list) => insertionSort(list),
     },
-    // {
-    //   name: "Selection Sort",
-    //   complexity: "O(n^2)",
-    //   sortAlg: (list) => selectionSort(list),
-    // },
+    {
+      name: "Selection Sort",
+      complexity: "O(n^2)",
+      sortAlg: (list) => selectionSort(list),
+    },
     // {
     //   name: "Merge Sort",
     //   complexity: "O(nlogn)",
@@ -67,7 +67,7 @@ export const AlgProvider = ({ children }) => {
     //   sortAlg: (list) => bucketSort(list),
     // },
   ]);
-  const [currentAlg, setCurrentAlg] = useState(0);
+  const [currentAlg, setCurrentAlg] = useState(1);
   const [reset, setReset] = useState(1);
   const [sorting, setSorting] = useState(0);
   const [sorted, setSorted] = useState(0);

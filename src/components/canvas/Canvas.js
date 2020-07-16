@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
-// import countingSort from "../../algorithms/countingSort";
 
 const genList = (size, min, max) => {
   return [...Array(size)].map((_) => ({
@@ -27,7 +26,7 @@ const Canvas = () => {
     for (let i = 0; i < animations.length; i++) {
       setTimeout(() => {
         setList(animations[i]);
-      }, i * 30);
+      }, i * 10);
     }
   };
 
@@ -49,7 +48,6 @@ const Canvas = () => {
   useEffect(() => {
     if (sorting === 1) {
       let animations = algs[currentAlg].sortAlg(list);
-      console.log(animations);
       animateList(animations);
       setSorting(0);
       setSorted(1);

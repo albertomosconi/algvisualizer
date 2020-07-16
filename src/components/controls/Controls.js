@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Button, ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
-import "./style.css";
 
 const Controls = () => {
   const { algs, setCurrentAlg, setReset, setSorting, sorted } = useContext(

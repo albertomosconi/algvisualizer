@@ -1,15 +1,42 @@
+const deepCopy = (list) => {
+  let copy = [];
+  for (let i = 0; i < list.length; i++) {
+    copy.push({ val: list[i].val, col: list[i].col });
+  }
+  return copy;
+};
+
 // INSERTION SORT
-export const insertionSort = (list) => {
-  for (let i = 1; i < list.length; i++) {
-    let j = i - 1;
-    let tmp = list[i];
-    while (j >= 0 && list[j] > tmp) {
-      list[j + 1] = list[j];
+export const insertionSort = (input) => {
+  let array = deepCopy(input);
+  let animations = [];
+  let i, j;
+  for (i = 1; i < array.length; i++) {
+    array[i].col = "green";
+    animations.push([...deepCopy(array)]);
+    j = i - 1;
+    let tmp = array[i].val;
+    while (j >= 0 && array[j].val > tmp) {
+      array[j].col = "red";
+      array[j + 1].col = "red";
+      animations.push([...deepCopy(array)]);
+
+      [array[j + 1], array[j]] = [array[j], array[j + 1]];
+      animations.push([...deepCopy(array)]);
+      if (j + 1 === i) array[i].col = "green";
+      else array[j + 1].col = "black";
+      animations.push([...deepCopy(array)]);
       j--;
     }
-    list[j + 1] = tmp;
+    array[j + 1].col = "red";
+    array[j + 1].val = tmp;
+    animations.push([...deepCopy(array)]);
+    array[j + 1].col = "black";
+    array[i].col = "black";
   }
-  return list;
+  array[j].col = "black";
+  animations.push([...deepCopy(array)]);
+  return animations;
 };
 
 // SELECTION SORT

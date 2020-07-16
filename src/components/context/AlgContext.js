@@ -19,53 +19,53 @@ export const AlgProvider = ({ children }) => {
     {
       name: "Insertion Sort",
       complexity: "O(n^2)",
-      sort: (list) => insertionSort(list),
+      sortAlg: (list) => insertionSort(list),
     },
-    {
-      name: "Selection Sort",
-      complexity: "O(n^2)",
-      sort: (list) => selectionSort(list),
-    },
-    {
-      name: "Merge Sort",
-      complexity: "O(nlogn)",
-      sort: (list) => mergeSort(list),
-    },
-    {
-      name: "Heapsort",
-      complexity: "O(nlogn)",
-      sort: (list) => heapSort(list),
-    },
-    {
-      name: "Quicksort",
-      complexity: "O(n^2)",
-      sort: (list) => quickSort(list),
-    },
-    {
-      name: "Shellsort",
-      complexity: "O(n^2)",
-      sort: (list) => shellSort(list),
-    },
-    {
-      name: "Bubble Sort",
-      complexity: "O(n^2)",
-      sort: (list) => bubbleSort(list),
-    },
-    {
-      name: "Comb Sort",
-      complexity: "O(n^2)",
-      sort: (list) => combSort(list),
-    },
-    {
-      name: "Counting Sort",
-      complexity: "O(n+k)",
-      sort: (list) => countingSort(list),
-    },
-    {
-      name: "Bucket Sort",
-      complexity: "O(n^2)",
-      sort: (list) => bucketSort(list),
-    },
+    // {
+    //   name: "Selection Sort",
+    //   complexity: "O(n^2)",
+    //   sortAlg: (list) => selectionSort(list),
+    // },
+    // {
+    //   name: "Merge Sort",
+    //   complexity: "O(nlogn)",
+    //   sortAlg: (list) => mergeSort(list),
+    // },
+    // {
+    //   name: "Heapsort",
+    //   complexity: "O(nlogn)",
+    //   sortAlg: (list) => heapSort(list),
+    // },
+    // {
+    //   name: "Quicksort",
+    //   complexity: "O(n^2)",
+    //   sortAlg: (list) => quickSort(list),
+    // },
+    // {
+    //   name: "Shellsort",
+    //   complexity: "O(n^2)",
+    //   sortAlg: (list) => shellSort(list),
+    // },
+    // {
+    //   name: "Bubble Sort",
+    //   complexity: "O(n^2)",
+    //   sortAlg: (list) => bubbleSort(list),
+    // },
+    // {
+    //   name: "Comb Sort",
+    //   complexity: "O(n^2)",
+    //   sortAlg: (list) => combSort(list),
+    // },
+    // {
+    //   name: "Counting Sort",
+    //   complexity: "O(n+k)",
+    //   sortAlg: (list) => countingSort(list),
+    // },
+    // {
+    //   name: "Bucket Sort",
+    //   complexity: "O(n^2)",
+    //   sortAlg: (list) => bucketSort(list),
+    // },
   ]);
   const [currentAlg, setCurrentAlg] = useState(0);
   const [reset, setReset] = useState(1);

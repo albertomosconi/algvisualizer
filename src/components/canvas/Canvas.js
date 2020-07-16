@@ -4,13 +4,14 @@ import { AlgContext } from "../context/AlgContext";
 // import countingSort from "../../algorithms/countingSort";
 
 const genList = (size, min, max) => {
-  return [...Array(size)].map((_) =>
-    Math.floor(Math.random() * (max - min + 1) + min)
-  );
+  return [...Array(size)].map((_) => ({
+    val: Math.floor(Math.random() * (max - min + 1) + min),
+    col: "black",
+  }));
 };
 
 const Canvas = () => {
-  const BARWIDTH = 2;
+  const BARWIDTH = 10;
   const {
     algs,
     currentAlg,
@@ -22,12 +23,20 @@ const Canvas = () => {
   } = useContext(AlgContext);
   const [list, setList] = useState([]);
 
+  const animateList = (animations) => {
+    for (let i = 0; i < animations.length; i++) {
+      setTimeout(() => {
+        setList(animations[i]);
+      }, i * 30);
+    }
+  };
+
   useEffect(() => {
     if (reset === 1) {
       setSorting(0);
       setList(
         genList(
-          Math.floor((window.innerWidth * 0.6) / (2 * BARWIDTH)),
+          Math.floor((window.innerWidth * 0.8) / (1 + BARWIDTH)),
           5,
           window.innerHeight * 0.7
         )
@@ -35,11 +44,13 @@ const Canvas = () => {
       setReset(0);
       setSorted(0);
     }
-  }, [reset, setSorting, setReset, setSorted]);
+  }, [reset, setReset, setSorted]);
 
   useEffect(() => {
     if (sorting === 1) {
-      setList((list) => algs[currentAlg].sort(list));
+      let animations = algs[currentAlg].sortAlg(list);
+      console.log(animations);
+      animateList(animations);
       setSorting(0);
       setSorted(1);
     }
@@ -59,9 +70,9 @@ const Canvas = () => {
             key={i}
             style={{
               width: BARWIDTH,
-              height: el,
-              background: "#121212",
-              margin: Math.min(BARWIDTH, 10),
+              height: el.val,
+              background: el.col,
+              margin: 1,
               display: "inline-block",
             }}
           ></div>

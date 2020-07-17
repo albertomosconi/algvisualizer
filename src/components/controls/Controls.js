@@ -3,9 +3,15 @@ import { Button, ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
 
 const Controls = () => {
-  const { algs, setCurrentAlg, setReset, setSorting, sorted } = useContext(
-    AlgContext
-  );
+  const {
+    algs,
+    currentAlg,
+    setCurrentAlg,
+    setReset,
+    setSorting,
+    sorted,
+  } = useContext(AlgContext);
+
   return (
     <div
       style={{
@@ -31,6 +37,7 @@ const Controls = () => {
               if (sorted) setReset(1);
             }}
             key={i}
+            className={i === currentAlg ? "bg-primary text-light" : ""}
           >
             <strong>{alg.name}</strong>
             {" - "}

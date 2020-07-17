@@ -2,14 +2,14 @@ import React, { createContext, useState } from "react";
 import {
   insertionSort,
   selectionSort,
-  mergeSort,
-  heapSort,
-  quickSort,
-  shellSort,
-  bubbleSort,
-  combSort,
-  countingSort,
-  bucketSort,
+  //   mergeSort,
+  //   heapSort,
+  //   quickSort,
+  //   shellSort,
+  //   bubbleSort,
+  //   combSort,
+  //   countingSort,
+  //   bucketSort,
 } from "../../algorithms/sorting";
 
 export const AlgContext = createContext();

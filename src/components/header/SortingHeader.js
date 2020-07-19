@@ -11,17 +11,25 @@ const SortingHeader = () => {
     <Navbar collapseOnSelect expand="md" bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>
-          <h3>
+          <h3
+            style={
+              {
+                //   verticalAlign: "middle",
+              }
+            }
+          >
             <Link to="/">
               <FontAwesomeIcon
                 style={{
                   color: "white",
-                  fontSize: "1.4rem",
+                  fontSize: "1.6rem",
+                  paddingBottom: 1,
                   marginRight: 10,
                 }}
                 icon={faHome}
               />
             </Link>
+
             {algs[currentAlg].name}
           </h3>
         </Navbar.Brand>

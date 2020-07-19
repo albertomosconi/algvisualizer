@@ -1,16 +1,12 @@
 import React from "react";
-import Canvas from "./components/canvas/Canvas";
-import { AlgProvider } from "./components/context/AlgContext";
-import Controls from "./components/controls/Controls";
-import Header from "./components/header/Header";
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./components/navigation/AppRoutes";
 
 function App() {
   return (
-    <AlgProvider>
-      <Header />
-      <Canvas />
-      <Controls />
-    </AlgProvider>
+    <Router>
+      <AppRoutes />
+    </Router>
   );
 }
 

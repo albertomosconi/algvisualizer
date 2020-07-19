@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Button, ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
 
-const Controls = () => {
+const SortingControls = () => {
   const {
     algs,
     currentAlg,
@@ -67,4 +67,4 @@ const Controls = () => {
   );
 };
 
-export default Controls;
+export default SortingControls;

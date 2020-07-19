@@ -9,7 +9,7 @@ const genList = (size, min, max) => {
   }));
 };
 
-const Canvas = () => {
+const SortingCanvas = () => {
   const BARWIDTH = 10;
   const {
     algs,
@@ -80,4 +80,4 @@ const Canvas = () => {
   );
 };
 
-export default Canvas;
+export default SortingCanvas;

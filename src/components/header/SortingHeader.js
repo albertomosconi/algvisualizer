@@ -1,14 +1,29 @@
 import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { AlgContext } from "../context/AlgContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const SortingHeader = () => {
   const { algs, currentAlg } = useContext(AlgContext);
   return (
     <Navbar collapseOnSelect expand="md" bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>
-          <h3>{algs[currentAlg].name}</h3>
+          <h3>
+            <Link to="/">
+              <FontAwesomeIcon
+                style={{
+                  color: "white",
+                  fontSize: "1.4rem",
+                  marginRight: 10,
+                }}
+                icon={faHome}
+              />
+            </Link>
+            {algs[currentAlg].name}
+          </h3>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -26,4 +41,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SortingHeader;

@@ -1,9 +1,9 @@
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { AlgContext } from "../context/AlgContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { AlgContext } from "../context/AlgContext";
 
 const SortingHeader = () => {
   const { algs, currentAlg } = useContext(AlgContext);
@@ -11,13 +11,7 @@ const SortingHeader = () => {
     <Navbar collapseOnSelect expand="md" bg="primary" variant="dark">
       <Container>
         <Navbar.Brand>
-          <h3
-            style={
-              {
-                //   verticalAlign: "middle",
-              }
-            }
-          >
+          <h3>
             <Link to="/">
               <FontAwesomeIcon
                 style={{

@@ -30,11 +30,8 @@ const SortingHeader = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link
-              href="https://www.github.com/albertomosconi/algvisualizer"
-              target="_blank"
-            >
-              Source Code
+            <Nav.Link href={algs[currentAlg].ref} target="_blank">
+              Wikipedia
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

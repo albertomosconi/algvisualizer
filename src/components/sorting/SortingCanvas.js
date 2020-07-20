@@ -10,7 +10,7 @@ const genList = (size, min, max) => {
 };
 
 const SortingCanvas = () => {
-  const BARWIDTH = 5;
+  const BARWIDTH = 8;
   const {
     algs,
     currentAlg,

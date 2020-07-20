@@ -4,7 +4,7 @@ const ruleSketch = (p, rule, init) => {
   let board = [];
 
   p.setup = () => {
-    p.createCanvas(p.windowWidth - 30, p.windowHeight - 120);
+    p.createCanvas(p.windowWidth - 30, p.windowHeight - 125);
 
     for (let i = 0; i < p.width - cellSize; i += cellSize) {
       population.push(0);

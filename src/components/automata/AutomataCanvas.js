@@ -16,7 +16,7 @@ const AutomataCanvas = () => {
   }, [currentAlg]);
 
   return (
-    <Container fluid style={{ height: window.innerHeight * 0.75 }}>
+    <Container fluid style={{ height: window.innerHeight - 125 }}>
       <div
         style={{ height: "100%", backgroundColor: "black" }}
         ref={p5canvas}

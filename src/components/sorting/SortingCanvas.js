@@ -5,12 +5,12 @@ import { SortingContext } from "../sorting/SortingContext";
 const genList = (size, min, max) => {
   return [...Array(size)].map((_) => ({
     val: Math.floor(Math.random() * (max - min + 1) + min),
-    col: "black",
+    col: "dark",
   }));
 };
 
 const SortingCanvas = () => {
-  const BARWIDTH = 10;
+  const BARWIDTH = 5;
   const {
     algs,
     currentAlg,
@@ -69,10 +69,10 @@ const SortingCanvas = () => {
             style={{
               width: BARWIDTH,
               height: el.val,
-              background: el.col,
               margin: 1,
               display: "inline-block",
             }}
+            className={"bg-" + el.col}
           ></div>
         ))}
       </div>

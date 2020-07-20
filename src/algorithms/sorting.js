@@ -12,29 +12,29 @@ export const insertionSort = (input) => {
   let animations = [];
   let i, j;
   for (i = 1; i < array.length; i++) {
-    array[i].col = "green";
+    array[i].col = "success";
     animations.push([...deepCopy(array)]);
     j = i - 1;
     let tmp = array[i].val;
     while (j >= 0 && array[j].val > tmp) {
-      array[j].col = "red";
-      array[j + 1].col = "red";
+      array[j].col = "danger";
+      array[j + 1].col = "danger";
       animations.push([...deepCopy(array)]);
 
       [array[j + 1], array[j]] = [array[j], array[j + 1]];
       animations.push([...deepCopy(array)]);
-      if (j + 1 === i) array[i].col = "green";
-      else array[j + 1].col = "black";
+      if (j + 1 === i) array[i].col = "success";
+      else array[j + 1].col = "dark";
       animations.push([...deepCopy(array)]);
       j--;
     }
-    array[j + 1].col = "red";
+    array[j + 1].col = "danger";
     array[j + 1].val = tmp;
     animations.push([...deepCopy(array)]);
-    array[j + 1].col = "black";
-    array[i].col = "black";
+    array[j + 1].col = "dark";
+    array[i].col = "dark";
   }
-  array[j].col = "black";
+  array[j].col = "dark";
   animations.push([...deepCopy(array)]);
   return animations;
 };
@@ -48,32 +48,32 @@ export const selectionSort = (input) => {
 
   for (var i = left; i < right; ++i) {
     var min = i;
-    array[i].col = "green";
+    array[i].col = "success";
     animations.push([...deepCopy(array)]);
 
     for (var j = i; j < right; ++j) {
       if (j !== min) {
-        array[j].col = "red";
-        if (j !== min + 1) array[j - 1].col = "black";
+        array[j].col = "danger";
+        if (j !== min + 1) array[j - 1].col = "dark";
         animations.push([...deepCopy(array)]);
       }
 
       if (array[min].val > array[j].val) {
-        array[j].col = "green";
+        array[j].col = "success";
         // animations.push([...deepCopy(array)]);
-        if (min !== i) array[min].col = "black";
+        if (min !== i) array[min].col = "dark";
         animations.push([...deepCopy(array)]);
         min = j;
       }
     }
 
-    if (j === right && j - 1 !== min) array[j - 1].col = "black";
+    if (j === right && j - 1 !== min) array[j - 1].col = "dark";
 
     [array[min], array[i]] = [array[i], array[min]];
     animations.push([...deepCopy(array)]);
     animations.push([...deepCopy(array)]);
-    array[min].col = "black";
-    array[i].col = "black";
+    array[min].col = "dark";
+    array[i].col = "dark";
     animations.push([...deepCopy(array)]);
   }
   return animations;

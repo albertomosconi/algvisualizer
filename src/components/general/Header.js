@@ -1,4 +1,4 @@
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
@@ -19,7 +19,7 @@ const Header = ({ context }) => {
                   paddingBottom: 1,
                   marginRight: 10,
                 }}
-                icon={faHome}
+                icon={faChevronLeft}
               />
             </Link>
 

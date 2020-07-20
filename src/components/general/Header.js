@@ -1,4 +1,4 @@
-import { faHome, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";

@@ -37,7 +37,7 @@ const SortingCanvas = () => {
         genList(
           Math.floor((window.innerWidth * 0.8) / (1 + BARWIDTH)),
           5,
-          window.innerHeight * 0.7
+          window.innerHeight * 0.75
         )
       );
       setReset(0);

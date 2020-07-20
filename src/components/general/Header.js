@@ -3,19 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { AlgContext } from "../context/AlgContext";
 
-const SortingHeader = () => {
-  const { algs, currentAlg } = useContext(AlgContext);
+const Header = ({ context }) => {
+  const { algs, currentAlg } = useContext(context);
   return (
-    <Navbar collapseOnSelect expand="md" bg="primary" variant="dark">
+    <Navbar collapseOnSelect expand="md">
       <Container>
         <Navbar.Brand>
           <h3>
             <Link to="/">
               <FontAwesomeIcon
                 style={{
-                  color: "white",
+                  color: "#333",
                   fontSize: "1.6rem",
                   paddingBottom: 1,
                   marginRight: 10,
@@ -40,4 +39,4 @@ const SortingHeader = () => {
   );
 };
 
-export default SortingHeader;
+export default Header;

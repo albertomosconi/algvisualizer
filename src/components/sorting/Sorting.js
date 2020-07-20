@@ -1,16 +1,16 @@
 import React from "react";
-import SortingCanvas from "../canvas/SortingCanvas";
-import { AlgProvider } from "../context/AlgContext";
-import SortingControls from "../controls/SortingControls";
-import SortingHeader from "../header/SortingHeader";
+import SortingCanvas from "./SortingCanvas";
+import { SortingProvider, SortingContext } from "./SortingContext";
+import SortingControls from "./SortingControls";
+import Header from "../general/Header";
 
 const Sorting = () => {
   return (
-    <AlgProvider>
-      <SortingHeader />
+    <SortingProvider>
+      <Header context={SortingContext} />
       <SortingCanvas />
       <SortingControls />
-    </AlgProvider>
+    </SortingProvider>
   );
 };
 

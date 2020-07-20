@@ -12,9 +12,9 @@ import {
   //   bucketSort,
 } from "../../algorithms/sorting";
 
-export const AlgContext = createContext();
+export const SortingContext = createContext();
 
-export const AlgProvider = ({ children }) => {
+export const SortingProvider = ({ children }) => {
   const [algs, setAlgs] = useState([
     {
       name: "Insertion Sort",
@@ -83,7 +83,7 @@ export const AlgProvider = ({ children }) => {
   const [sorted, setSorted] = useState(0);
 
   return (
-    <AlgContext.Provider
+    <SortingContext.Provider
       value={{
         algs,
         setAlgs,
@@ -98,6 +98,6 @@ export const AlgProvider = ({ children }) => {
       }}
     >
       {children}
-    </AlgContext.Provider>
+    </SortingContext.Provider>
   );
 };

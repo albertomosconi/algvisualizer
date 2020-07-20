@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Button, ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
-import { AlgContext } from "../context/AlgContext";
+import { SortingContext } from "./SortingContext";
 
 const SortingControls = () => {
   const {
@@ -10,7 +10,7 @@ const SortingControls = () => {
     setReset,
     setSorting,
     sorted,
-  } = useContext(AlgContext);
+  } = useContext(SortingContext);
 
   return (
     <div

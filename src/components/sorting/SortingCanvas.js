@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import { AlgContext } from "../context/AlgContext";
+import { SortingContext } from "../sorting/SortingContext";
 
 const genList = (size, min, max) => {
   return [...Array(size)].map((_) => ({
@@ -19,7 +19,7 @@ const SortingCanvas = () => {
     sorting,
     setSorting,
     setSorted,
-  } = useContext(AlgContext);
+  } = useContext(SortingContext);
   const [list, setList] = useState([]);
 
   const animateList = (animations) => {

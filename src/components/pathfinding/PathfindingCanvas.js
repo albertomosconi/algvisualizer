@@ -20,7 +20,7 @@ const PathfindingCanvas = () => {
       fluid
       style={{
         height: Math.min(window.innerHeight - 125, window.innerWidth - 30),
-        width: Math.min(window.innerHeight - 125, "100%"),
+        width: Math.min(window.innerHeight - 125, window.innerWidth),
       }}
     >
       <div

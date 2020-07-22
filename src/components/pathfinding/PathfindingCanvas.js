@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import p5 from "p5";
 import { Container } from "react-bootstrap";
-import { AutomataContext } from "./AutomataContext";
+import { PathfindingContext } from "./PathfindingContext";
 
-const AutomataCanvas = () => {
+const PathfindingCanvas = () => {
   const p5canvas = useRef();
   const [myP5, setMyP5] = useState();
-  const { algs, currentAlg } = useContext(AutomataContext);
+  const { algs, currentAlg } = useContext(PathfindingContext);
 
   useEffect(() => {
     let div;
@@ -16,13 +16,22 @@ const AutomataCanvas = () => {
   }, [currentAlg, algs]);
 
   return (
-    <Container fluid style={{ height: window.innerHeight - 125 }}>
+    <Container
+      fluid
+      style={{
+        height: Math.min(window.innerHeight - 125, window.innerWidth - 30),
+        width: Math.min(window.innerHeight - 125, "100%"),
+      }}
+    >
       <div
-        style={{ height: "100%", backgroundColor: "black" }}
+        style={{
+          height: "100%",
+          backgroundColor: "black",
+        }}
         ref={p5canvas}
       />
     </Container>
   );
 };
 
-export default AutomataCanvas;
+export default PathfindingCanvas;

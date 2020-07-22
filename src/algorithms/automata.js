@@ -42,7 +42,7 @@ const ruleSketch = (p, rule, init) => {
         conf += "0";
         conf += lastPop[i].toString();
         conf += lastPop[i + 1].toString();
-      } else if (i == lastPop.length - 1) {
+      } else if (i === lastPop.length - 1) {
         conf += lastPop[i - 1].toString();
         conf += lastPop[i].toString();
         conf += "0";

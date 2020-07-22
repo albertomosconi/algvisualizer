@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AutomataContext } from "./AutomataContext";
-import { Button, ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
+import { ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 
 const AutomataControls = () => {
   const { algs, currentAlg, setCurrentAlg } = useContext(AutomataContext);

@@ -12,9 +12,11 @@ export const PathfindingProvider = ({ children }) => {
     },
   ]);
   const [currentAlg, setCurrentAlg] = useState(0);
+  const [refresh, setRefresh] = useState(0);
+
   return (
     <PathfindingContext.Provider
-      value={{ algs, setAlgs, currentAlg, setCurrentAlg }}
+      value={{ algs, setAlgs, currentAlg, setCurrentAlg, refresh, setRefresh }}
     >
       {children}
     </PathfindingContext.Provider>

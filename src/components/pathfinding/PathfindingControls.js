@@ -1,9 +1,14 @@
+import { faSync } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext } from "react";
-import { ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
+import { Button, ButtonGroup, Dropdown, DropdownButton } from "react-bootstrap";
 import { PathfindingContext } from "./PathfindingContext";
 
 const PathfindingControls = () => {
-  const { algs, currentAlg, setCurrentAlg } = useContext(PathfindingContext);
+  const { algs, currentAlg, setCurrentAlg, setRefresh } = useContext(
+    PathfindingContext
+  );
+
   return (
     <div
       style={{
@@ -34,6 +39,10 @@ const PathfindingControls = () => {
           </Dropdown.Item>
         ))}
       </DropdownButton>
+      <span style={{ width: 10 }} />
+      <Button onClick={() => setRefresh(Math.random())}>
+        <FontAwesomeIcon icon={faSync} />
+      </Button>
     </div>
   );
 };

@@ -6,14 +6,14 @@ import { PathfindingContext } from "./PathfindingContext";
 const PathfindingCanvas = () => {
   const p5canvas = useRef();
   const [myP5, setMyP5] = useState();
-  const { algs, currentAlg } = useContext(PathfindingContext);
+  const { algs, currentAlg, refresh } = useContext(PathfindingContext);
 
   useEffect(() => {
     let div;
     if ((div = document.getElementById("defaultCanvas0")))
       div.parentNode.removeChild(div);
     setMyP5(new p5(algs[currentAlg].sketch, p5canvas.current));
-  }, [currentAlg, algs]);
+  }, [currentAlg, algs, refresh]);
 
   return (
     <Container

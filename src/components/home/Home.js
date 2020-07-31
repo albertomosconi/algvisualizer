@@ -39,7 +39,7 @@ const Home = () => {
         rel="noopener noreferrer"
         className="text-muted"
       >
-        view source code
+        view source code on github
       </a>
       <hr />
       {types.map((t, i) => (
@@ -63,6 +63,7 @@ const Home = () => {
           >
             Alberto Mosconi
           </a>
+          {" - 2020"}
         </p>
       </div>
     </Container>
